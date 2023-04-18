@@ -11,8 +11,8 @@ source ./.sysbench.cfg
 
 prepareDatabase() {
   echo "... Droping and creating datsbase"
-  mariadb -e "DROP DATABASE IF EXISTS $lv_database"
-  mariadb -e "CREATE DATABASE $lv_database"
+  mariadb -u$lv_username -p$lv_password --host="$lv_host" --port=$lv_port -e "DROP DATABASE IF EXISTS $lv_database"
+  mariadb -u$lv_username -p$lv_password --host="$lv_host" --port=$lv_port -e "CREATE DATABASE $lv_database"
   echo "... Dropped Database"
 }
 
